@@ -26,3 +26,20 @@ model.history = model.fit(xtrain,ytrain,epochs = 5,batch_size = 64,validation_da
 base_test_loss,base_test_acc = model.evaluate(xtest,ytest)
 print("accuracy = ",base_test_acc)
 print("loss = ",base_test_loss)
+class_name=['0','1','2','3','4','5','6','7','8','9']
+index=np.random.choice(len(xtest),3,replace=False)
+sample=xtest[index]
+sample_label=ytest[index]
+pred=model.predict(sample)
+
+for i in range(3):
+    predicted_label=class_name[np.argmax(pred[i])]
+    true_label=class_name[np.argmax(sample_label[i])]
+   
+    plt.subplot(1,3,i+1)
+    plt.imshow(sample[i])
+    plt.title(f"True : {true_label} | predicted:{predicted_label}")
+    plt.axis('off')
+    plt.tight_layout()
+plt.show()             
+
