@@ -1,5 +1,3 @@
-#exp 4
-
 
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Flatten, Dropout
